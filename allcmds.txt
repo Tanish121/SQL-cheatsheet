@@ -1,0 +1,100 @@
+-- SELECT
+SELECT
+
+SELECT * FROM users
+SELECT user_login FROM users
+
+LIMIT
+eg - SELECT * FROM users LIMIT 2 
+
+OFFSET - used for pagination
+eg - SELECT * FROM users LIMIT 2 OFFSET 5
+
+MULTIPLE COLUMS
+eg- SELECT user_login, user_pass FROM users LIMIT 2 OFFSET 5
+
+ORDER BY
+eg1 - SELECT * FROM users ORDER BY user_email
+
+eg2 - SELECT * FROM users  
+ORDER BY `users`.`user_email`  DESC 
+# for descending order
+
+
+____________________________________
+using products.sql
+
+WHERE
+SELECT * FROM `products` WHERE price = 11.99
+SELECT * FROM products WHERE book_name =  "WILD"
+SELECT * FROM products WHERE author="Yuval Noah Harari" AND price = 18.99
+SELECT * FROM products WHERE author="Yuval Noah Harari" OR price = 18.99
+
+WHERE OPERATORS
+=  equality
+<> non-equality
+!= non-equality 
+<  less than
+<= less than or equal
+>  greater than
+>= greater than or equal
+!> not greater
+BETWEEN
+IS NULL
+
+AND
+OR
+
+LIKE
+SELECT * FROM products WHERE author LIKE "%Miller%" 
+% sign represents wildcard so in this case if we put "%Miller" it would 
+have worked too.
+
+AGGREGATE FUNCTIONS
+
+AVG()
+SELECT AVG(price) FROM products
+
+SUM()
+SELECT SUM(price) FROM products
+
+COUNT()
+MAX()
+MIN()
+
+CHALLENGE = SELECT *, price * quantity FROM products
+
+__________________________________________
+states.sql
+
+Q1 state drink of Maine?
+SELECT * FROM states WHERE state = "Maine"
+
+Q2 states having milk as their state drink
+SELECT * FROM states WHERE drink = "Milk"
+
+Q3 count the number of states having drink as milk?
+SELECT COUNT(drink) FROM states WHERE drink = "Milk"
+
+Q4 first state to initiate a state drink?
+SELECT * FROM states ORDER BY year LIMIT 1
+
+
+====================================================================================================
+INSERT
+INSERT INTO states (state, drink, year, image) values ("New Jersey", "Vodka", 2018, "vodka.jpg")
+
+====================================================================================================
+UPDATE
+UPDATE states SET drink = "Chocolate Oat Milk" WHERE state = "Delaware"
+
+or 
+
+UPDATE states 
+SET drink = "Chocolate Oat Milk" 
+WHERE state = "Delaware"
+
+====================================================================================================
+DELETE
+
+
